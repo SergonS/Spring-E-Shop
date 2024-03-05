@@ -1,4 +1,4 @@
-package com.sergon.orderservice.model;
+package com.sergon.ordersservice.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

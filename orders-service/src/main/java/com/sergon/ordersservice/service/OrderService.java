@@ -1,18 +1,20 @@
-package com.sergon.orderservice.service;
+package com.sergon.ordersservice.service;
 
-import com.sergon.orderservice.dto.OrderLineItemDto;
-import com.sergon.orderservice.dto.OrderRequest;
-import com.sergon.orderservice.model.Order;
-import com.sergon.orderservice.model.OrderLineItem;
-import com.sergon.orderservice.repository.OrderRepository;
+import com.sergon.ordersservice.dto.OrderLineItemDto;
+import com.sergon.ordersservice.dto.OrderRequest;
+import com.sergon.ordersservice.model.Order;
+import com.sergon.ordersservice.model.OrderLineItem;
+import com.sergon.ordersservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class OrderService
 {
     private final OrderRepository orderRepository;
@@ -27,7 +29,7 @@ public class OrderService
                 .map(this::mapToDto)
                 .toList();
 
-        order.setOrderLineItemsList(orderLineItems);
+        order.setOrderLineItemList(orderLineItems);
 
         orderRepository.save(order);
     }
@@ -35,6 +37,7 @@ public class OrderService
     private OrderLineItem mapToDto(OrderLineItemDto orderLineItemDto)
     {
         OrderLineItem orderLineItem = new OrderLineItem();
+
         orderLineItem.setPrice(orderLineItemDto.getPrice());
         orderLineItem.setQuantity(orderLineItemDto.getQuantity());
         orderLineItem.setSkuCode(orderLineItemDto.getSkuCode());

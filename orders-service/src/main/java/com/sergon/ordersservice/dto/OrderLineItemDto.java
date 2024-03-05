@@ -1,4 +1,4 @@
-package com.sergon.orderservice.dto;
+package com.sergon.ordersservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

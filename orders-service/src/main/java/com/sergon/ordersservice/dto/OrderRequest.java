@@ -1,6 +1,5 @@
-package com.sergon.orderservice.dto;
+package com.sergon.ordersservice.dto;
 
-import com.sergon.orderservice.model.OrderLineItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

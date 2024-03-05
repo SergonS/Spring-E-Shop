@@ -1,7 +1,8 @@
-package com.sergon.orderservice.controller;
+package com.sergon.ordersservice.controller;
 
-import com.sergon.orderservice.dto.OrderRequest;
-import com.sergon.orderservice.service.OrderService;
+
+import com.sergon.ordersservice.dto.OrderRequest;
+import com.sergon.ordersservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ public class OrderController
     public String placeOrder(@RequestBody OrderRequest orderRequest)
     {
         orderService.placeOrder(orderRequest);
+
         return "Order Placed Successfully";
     }
 }
